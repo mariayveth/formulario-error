@@ -1,0 +1,53 @@
+<h2>REGISTRO DE PRODUCTO</h2>
+<form #productoFormulario="ngForm"(ngSubmit)="formularioup()">
+<!--#productoFormulario="ngform" indicamos que el formulario con este ID es un formulario Angular
+(ngSubmit)="formularioup()" indica la accion/fuction que va a ejecutar cuando se envie el formulario-->
+<label>Nombre:</label><br>
+<input id="nombre" name="nombre" type="text" placeholder="ingrese el nombre del producto" required #nombre="ngModel"
+[(ngModel)]="Producto.nombre">
+
+<br>
+<label>Marca:</label><br>
+<input id="marca" name="marca" type="text" placeholder="ingrese el marca del producto" required #marca="ngModel"
+[(ngModel)]="Producto.marca">
+
+<br>
+<label>Precio:</label><br>
+<input id="precio" name="precio" type="number" placeholder="ingrese el precio del producto" required #precio="ngModel"
+[(ngModel)]="Producto.precio">
+
+<br>
+<label>unidades:</label><br>
+<input id="unidades" name="unidades" type="number" placeholder="ingrese el unidades del producto" required #unidades="ngModel"
+[(ngModel)]="Producto.unidades">
+
+<br>
+<button type="submit">ENVIAR</button>
+</form>
+
+
+<div *ngFor="let producto of productosEncontrados">
+
+<form #actualizarProductosForm="ngForm"   > <!--ID indica que es un formulario de angular-->
+    <label> Nombre:</label>
+    <input type="text" id="nombre" required #nombre="ngModel"
+    name="nombre" [(ngModel)]="producto.nombre">
+    <br>
+    <!--creamos el input donde se insertara los datos de las BD a traves del contador creado con el for-->
+    <label>Marca:</label> <br>
+    <input type="text" id="marca" required #marca="ngModel" name="marca"
+    name="marca"[(ngModel)]="producto.marca">
+    <br>
+    <label> Precio:</label>
+    <input type="number" id="precio" required #precio="ngModel"
+    name="precio" [(ngModel)]="producto.Precio">
+    <br>
+    <label> unidades:</label>
+    <input type="number" id="unidades" required #unidades="ngModel"
+    name="unidades" [(ngModel)]="producto.unidades">
+    <br>
+
+    <!--<button(click)="editarProducto(producto)">Actualizar</button>-->
+    <!--<button(clink)="eliminarProducto(producto._id)">Eliminar</button>-->
+</form>
+</div>
